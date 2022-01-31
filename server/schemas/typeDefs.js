@@ -9,13 +9,19 @@ const typeDefs = gql`
     createdAt: String
     username: String
     reactionCount: Int
+    reactions: [Reaction]
+  }
+
+  type Reaction {
+    _id: ID
+    reactionBody: String
+    createdAt: String
+    username: String
   }
 
   type Query {
-      # the way we set this up will allow us to query thoughts with or without the username parameter
     thoughts(username: String): [Thought]
   }
 `;
-
 // export the typeDefs
 module.exports = typeDefs;
