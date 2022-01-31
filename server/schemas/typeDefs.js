@@ -12,7 +12,8 @@ const typeDefs = gql`
   }
 
   type Query {
-    thoughts: [Thought]
+      # the way we set this up will allow us to query thoughts with or without the username parameter
+    thoughts(username: String): [Thought]
   }
 `;
 
