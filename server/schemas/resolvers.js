@@ -26,6 +26,19 @@ const resolvers = {
       return Thought.findOne({ _id });
     },
   },
+
+  Mutation: {
+    // addUser mutation
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+    
+      return user;
+    },
+    // login mutation
+    login: async () => {
+
+    }
+  }
 };
 
 module.exports = resolvers;
