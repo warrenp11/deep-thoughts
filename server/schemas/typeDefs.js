@@ -28,6 +28,12 @@ const typeDefs = gql`
     username: String
   }
 
+  # must return a token and can optionally include any other user data
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Query {
     users: [User]
     user(username: String!): User
@@ -36,8 +42,8 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    login(email: String!, password: String!): User
-    addUser(username: String!, email: String!, password: String!): User
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
   }
 `;
 // export the typeDefs
